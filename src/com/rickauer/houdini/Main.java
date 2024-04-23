@@ -3,7 +3,13 @@ package com.rickauer.houdini;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class Main {
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class Main extends Application {
 	
 	private static String PROGRAM = "Houdini";
 	private static String VERSION = "0.02";
@@ -16,6 +22,7 @@ public class Main {
 		mainLogger.info(PROGRAM_AND_VERSION + " starting ...");
 		try {
 			System.out.println(PROGRAM_AND_VERSION);
+			Application.launch(args);
 			
 		} catch (Exception exception) {
 			mainLogger.error(exception.getMessage());
@@ -23,4 +30,15 @@ public class Main {
 		}
 	}
 	
+	@Override
+	public void start(Stage stage) {
+		Text msg = new Text("Test Screen.");
+		VBox root = new VBox();
+		root.getChildren().add(msg);
+		
+		Scene scene = new Scene(root, 300, 50);
+		stage.setScene(scene);
+		stage.setTitle(PROGRAM_AND_VERSION);
+		stage.show();
+	}
 }
