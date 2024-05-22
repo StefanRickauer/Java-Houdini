@@ -28,6 +28,7 @@ public class Main extends Application {
 			mainLogger.error(exception.getMessage());
 			exception.printStackTrace();
 		}
+		mainLogger.info(PROGRAM_AND_VERSION + " finished.");
 	}
 	
 	@Override
